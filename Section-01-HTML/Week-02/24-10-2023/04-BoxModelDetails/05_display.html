@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 60px;
+            height: 60px;
+            color: white;
+        }
+
+        #box1 {
+            background-color: navy;
+        }
+
+        #box2 {
+            background-color: rgb(9, 24, 9);
+            /* display: none; */
+            /* display: block; */
+            /* elementi kaldırıyor */
+            /* visibility: hidden; */
+            visibility: visible;
+        }
+
+        #box3 {
+            background-color: rgb(46, 6, 6);
+        }
+
+        a {
+            display: inline-block;
+            width: 100px;
+        }
+
+        /*
+        inline block: bir elementin inline olmaya devam etmesini ancak bazı blok özelliklerini kazanmasını sağlar.
+        inline elemente etki etmeyen özellikler::after
+        1) width, height
+        2) margin-top, margin-bottom
+        3)padding-top, padding- bottom 
+        eğer bir inline elemnte yukarıdaki özelliklerin etki etmesini istiyorsak onu inline block yapmalıyız.
+        *eğer bir blok elementin inline olmasını ama blok özelliklerini taşımaya devam etmesini istiyorsak onu yine inline -block yapmalıyız.
+        */
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <!-- .box#box1*3 claası box olan idsi box1 olan 3 adet div olustur.-->
+
+        <div class="box" id="box1">First Box</div>
+        <div class="box" id="box2">Second Box</div>
+        <div class="box" id="box3">Third Box</div>
+        <a href="#">Google</a>
+        <a href="#">Microsoft</a>
+
+
+    </div>
+</body>
+
+</html>

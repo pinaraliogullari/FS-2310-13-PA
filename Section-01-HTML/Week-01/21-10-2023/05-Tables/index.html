@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1"> <!--border çerçeve, r(row):satır, h(head):başlık,d(data:veri)-->
+        <tr>
+            <td colspan="4" align="center">Öğrenci Listesi</td>
+        </tr>
+        <tr>
+            <td colspan="2"align="center">X</td>
+            <td colspan="2" align="center">Y</td>
+        </tr>
+            
+        
+        <tr>
+            <th>Id</th>
+            <th>Ad Soyad</th>
+            <th>Doğum Yılı</th>
+            <th>Cinsiyet</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Ayşenur Gezgin</td>
+            <td>1999</td>
+            <td>Kadın</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Pınar Alioğulları</td>
+            <td>1996</td>
+            <td>Kadın</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Emre Kaya</td>
+            <td>1994</td>
+            <td>Erkek</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Serkan Alioğulları</td>
+            <td>2001</td>
+            <td>Erkek</td>
+        </tr>
+
+    </table>
+    <h1>Yeni Tablo</h1>
+<table border="1"> <!--table>tr*6>td*2-->
+    <tr>
+        <td rowspan="3">A Salonu</td>
+        <td>1. Film</td>
+    </tr>
+    <tr>
+        <!-- <td ></td> --><!--bunu ilk satırdki tdde rowspan yaptıgımız icin siliyoruz-->
+        <td>2. Film</td>
+    </tr>
+    <tr>
+        <!-- <td></td> --><!--bunu ilk satırdki tdde rowspan yaptıgımız icin siliyoruz-->
+        <td>3. Film</td>
+    </tr>
+    <tr>
+        <td rowspan="3">B Salonu</td>
+        <td>1. Film</td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>2. Film</td>
+    </tr>
+    <tr>
+        <!-- <td></td> -->
+        <td>3. Film</td>
+    </tr>
+</table>
+
+</body>
+</html>

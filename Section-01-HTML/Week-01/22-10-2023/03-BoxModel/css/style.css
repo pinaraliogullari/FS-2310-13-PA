@@ -1,0 +1,30 @@
+.kutu {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* margin: 10px;  her kenar aynı mesafe*/
+    /*boxların etrafındaki mesafe*/
+    /*her tarafındaki mesafeyi farklı ayarlamak istersek*/
+    /*  margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px; */
+
+    /*tek bir margin komutu ile- toptan baslayarak saat yönünde*/
+    margin: 10px 20px 30px 40px;
+
+    /*eğer iki degerimiz varsa top- buttom, left right seklinde gruplanır*/
+    /* margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin:20 px 30 px */
+    display: inline-block;
+
+    /*3 deger oldugunda birincisini top, ikincisi bottom, 3. left ve right olarak alır.*/
+    margin: 10px 40px 60px;
+}
+
+body {
+    margin: 0;
+}
