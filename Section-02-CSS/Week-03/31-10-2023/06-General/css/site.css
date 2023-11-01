@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@100;300;400;500&display=swap');
+
+/*isimleri kendimiz verdik.*/
+:root {
+    --primary-color: #219C90;
+    --secondary-color: #E9B824;
+    --text-color: #EE9322;
+    --light-color: #D83F31;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    /*    görünen ekranın yüzde 90 ı */
+    background-color: var(--secondary-color);
+    color: var(--black-color) width: 90vw;
+    margin: 0 auto;
+
+}
+
+.header {
+    /* headerın kapsayıcısı container. width i containerın 100% olarak ayarladık */
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+
+}
+
+.header-logo {
+
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.main-nav {
+    /* width: 50%; */
+}
+
+.main-nav-items {
+    /* width: 100%; */
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 20px; */
+    column-gap: 20px;
+
+}
+
+.main-nav-item {
+    /* margin-left: 20px; */
+
+}
