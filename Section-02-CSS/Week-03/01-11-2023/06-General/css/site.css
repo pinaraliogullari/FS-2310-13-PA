@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@100;300;400;500&display=swap');
+
+/*isimleri kendimiz verdik.*/
+:root {
+    --primary-color: #219C90;
+    --secondary-color: #E9B824;
+    --text-color: #EE9322;
+    --light-color: #D83F31;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.container {
+    /*    görünen ekranın yüzde 90 ı */
+    /* background-color: var(--secondary-color); */
+    color: var(--black-color);
+    width: 90vw;
+    margin: 0 auto;
+
+}
+
+.header {
+    /* headerın kapsayıcısı container. width i containerın 100% olarak ayarladık */
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+
+
+}
+
+.header-logo {
+
+    font-size: 30px;
+    font-weight: 500;
+    /* background-color: aqua; */
+}
+
+.main-nav {
+    /* background-color: red; */
+}
+
+.main-nav-items {
+    /* width: 100%; */
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 20px; */
+    column-gap: 20px;
+
+}
+
+.main-nav-item {
+    /* margin-left: 20px; */
+    height: 30px;
+    width: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.main-nav-item a {
+    font-weight: 300;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary-color);
+
+}
+
+.main-nav-item a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.main {}
+
+#show-case {
+    background: linear-gradient(to top left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("/images/home-bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#show-case-content {
+
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+
+
+}
+
+#show-case-content h2 {
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--white-color);
+}
+
+#show-case-content h3 {
+    color: var(--white-color);
+}
+
+.how-it-works {
+    display: flex;
+    column-gap: 40px;
+    padding: 25px;
+}
+
+.fa-solid {
+    font-size: 30px;
+    color: var(--primary-color);
+}
