@@ -21,3 +21,4 @@ result = courseName.trimEnd();
 result = courseName.indexOf("F"); //küçük f yazsak bulamaz.
 
 console.log(result);
+
