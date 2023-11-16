@@ -11,7 +11,7 @@ console.log(products);
 
 let prices=[35000,29000,19500,9750];
 console.log(prices);
-//c# tan farklı olarak j de diziler iinde farklı tip eleman bulundurabilir. tercih edilmez.
 
+//c# tan farklı olarak js de diziler içinde farklı tip eleman bulundurabilir. tercih edilmez.
 let student1=["Pinar", "Aliogullari", 27, true];
 console.log(student1);
