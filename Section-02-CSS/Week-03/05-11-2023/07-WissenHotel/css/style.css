@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
 
+
 }
 
 body {
@@ -13,6 +14,7 @@ body {
     font-size: 18px;
     color: var(--text-primary);
     font-weight: 300;
+
     /* padding-top: 70px; */
 }
 

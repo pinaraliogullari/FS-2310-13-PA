@@ -65,24 +65,44 @@
 içiçe döngü kullanılacak.
 */
 
-let names = ["Ahmet", "Mehmet", "Yeşim"];
-let nameCount = names.length;
-let department = ["inşaat müh", "mimarlık", "yazılım müh"];
-let departmentCount = department.length;
-let randomValue1;
-let randomValue2;
+// let names = ["Ahmet", "Mehmet", "Yeşim"];
+
+// let departments = ["inşaat müh", "mimarlık", "yazılım müh"];
+//hocanın çözümü;
+
+// let result = [];
+// let random=3;
+
+// for (let i = 0; i < names.length; i++) {
+//     while (random>2) {
+//         random = parseInt(Math.random() * 10);
+//     }
+
+//     result.push({name:names[i], department:departments[random]});
+// random=3;
+
+// }
+// console.log(result);
+
+//diğer çözüm;
 
 
+ let names = ["Ahmet", "Mehmet", "Yeşim"];
 
-for (let i = 0; i < nameCount; i++) {
-    randomValue1 = Math.floor(Math.random() * nameCount);
+ let departments = ["inşaat müh", "mimarlık", "yazılım müh"];
+//0 ile 5 arası sayı üretir. 5 hariç.
+//  let random=Math.random()*5; 
+//  console.log(random);
+//  console.log(Math.floor(random));
 
-    for (let j = 0; j < departmentCount; j++) {
-        randomValue2 = Math.floor(Math.random() * departmentCount);
+ //verilen min ve max değer arasında rastgele bir sayı üretir. min ve max dahildir.
 
+ let random=Math.floor(Math.random()*7+3);
 
-    }
+ function randomInt(min,max){
 
-}
-console.log(names[randomValue1] + " " + department[randomValue2]);
+    return Math.floor(Math.random()*(max-min)+min);
 
+ }
+
+ console.log(randomInt(0,3));
