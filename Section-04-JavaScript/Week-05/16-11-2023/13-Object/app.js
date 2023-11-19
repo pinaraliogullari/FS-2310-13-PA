@@ -97,12 +97,28 @@ içiçe döngü kullanılacak.
 
  //verilen min ve max değer arasında rastgele bir sayı üretir. min ve max dahildir.
 
- let random=Math.floor(Math.random()*7+3);
+//  let random=Math.floor(Math.random()*7+3);
 
- function randomInt(min,max){
+//  function randomInt(min,max){
 
-    return Math.floor(Math.random()*(max-min)+min);
+//     return Math.floor(Math.random()*(max-min)+min);
 
- }
+//  }
 
- console.log(randomInt(0,3));
+//  console.log(randomInt(0,3));
+
+let students=[];
+let arr=[];
+
+while(arr.length<3){
+    let n=Math.floor(Math.random()*departments.length);
+     if(arr.indexOf(n)==-1) arr.push(n);
+}
+
+ for(let i=0; i<names.length; i++)
+ {
+     let student={name:names[i], department: departments[arr[i]]};
+    students.push(student);
+
+}
+ console.log(students);

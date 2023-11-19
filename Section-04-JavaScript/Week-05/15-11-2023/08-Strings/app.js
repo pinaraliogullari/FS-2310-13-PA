@@ -18,7 +18,7 @@ result = courseName.trim();//sadece baştaki ve sonraki boşlukları siler
 result = courseName.trimStart();
 result = courseName.trimEnd();
 
-result = courseName.indexOf("F", 0); //küçük f yazsak bulamaz.0. indexten başla. 3 yazsak aramaya  3. indexten başlar.
+result = courseName.indexOf("F", 0); //küçük f yazsak bulamaz.0. indexten başla. 3 yazsak aramaya  3. indexten başlar. bulamazsak -1 döner.
 
 result=courseName.split(" ");
 result=courseName.startsWith("s");

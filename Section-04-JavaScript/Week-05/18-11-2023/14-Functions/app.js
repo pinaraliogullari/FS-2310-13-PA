@@ -98,17 +98,43 @@ Sayın 'Fettah Can',emekli olmanıza 7 yıl kalmıştır.
 
 //SORU: Kendisine gönderilen sayının tam bölenlerini bulup döndüren fonksiyonu hazırlayınız.
 
-function tamBolenler(sayi){
-   let tambolenlerDisizi=[];
-   for(let i=1; i<=sayi; i++){
-    if(sayi% i ==0){
-        tambolenlerDisizi.push(i);
-    }
-   }
-   return tambolenlerDisizi;
-}
+// function tamBolenler(sayi) {
+//     let tambolenlerDisizi = [];
+//     for (let i = 1; i <= sayi; i++) {
+//         if (sayi % i == 0) {
+//             tambolenlerDisizi.push(i);
+//         }
+//     }
+//     return tambolenlerDisizi;
+// }
 
-console.log(tamBolenler(8));
+// console.log(tamBolenler(8));
 
 //ÖDEV: 1-50 arasındaki asal sayıları bulup  döndüren fonksiyonu yazınız.
+
+function findPrime() {
+    let primeArray = [];
+
+    for (let i = 1; i < 50; i++) {
+        if (isPrime(i)) {
+            primeArray.push(i);
+        }
+    }
+
+    return primeArray;
+}
+
+function isPrime(number) {
+    if (number < 2) return false;
+
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) return false;
+    }
+
+    return true;
+}
+
+let primeArray = findPrime();
+console.log(`1 ile 50 arasındaki asal sayılar :${primeArray}`);
+
 
