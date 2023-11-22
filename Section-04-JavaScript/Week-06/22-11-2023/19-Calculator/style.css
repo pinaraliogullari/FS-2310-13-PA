@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1 rem normalde 16px bunu değiştirmek için htmle yazmalıyız */
+html {
+    font-size: 10px;
+}
+
+.calculator {
+    border: .1rem solid #ccc;
+    border-radius: .5rem;
+    width: 40rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* overflow: hidden; */
+
+}
+
+.calculator-input {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 7rem;
+    border-top-right-radius: .4rem;
+    /*veya calculator a overflow hidden diyebiliriz*/
+    border-top-left-radius: .4rem;
+    border: none;
+    font-size: 4rem;
+    text-align: end;
+    padding-right: 1rem;
+
+}
+
+.calculator-keys {
+    display: grid;
+    /* grid-template-columns: 80px 80px 80px 80px; kaç değer yazdıysak verdiğimiz genişlikte o kadar sütuna böldü . daha kolay yolu aşağıda */
+    /* grid-template-columns:1fr 1fr 1fr 1fr  aşağıdaki bunun aynısı*/
+    grid-template-columns: repeat(4, 1fr);
+    /*toplam alanı eşit parçaya ayıracak şekilde 4 e böldü*/
+    grid-gap: 2rem;
+    padding: 2rem;
+}
+
+button {
+    height: 60px;
+    border-radius: .3rem;
+    border: .1rem solid #ccc;
+    cursor: pointer;
+    font-size: 2.5rem;
+    /* color: #3d3b3b; */
+    background-color: #fff;
+
+}
+
+button:hover {
+    background-color: #f3eeee;
+}
+
+.operator {
+    color: #336cac;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.clear {
+    background-color: tomato;
+    color: #fff;
+}
+
+.clear:hover {
+    background-color: tomato;
+    opacity: .9;
+}
+
+.sign-operator{
+    background-color: #336cac;
+    color: #fff;
+    grid-area:2 / 4 /6 / 5; /* ilk ikisi başlangıç koordinat son ikisi bitiş. amacımız = işaretini istediğimiz yere taşımak*/
+    height: 100%;
+}

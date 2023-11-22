@@ -11,7 +11,7 @@ btnOpenModal.addEventListener("click", function () {
 btnCloseModal.addEventListener("click", closeModal);
 btnNoModal.addEventListener("click", closeModal);
 mainModal.addEventListener("click", function(event){
-    console.log(event.target);//target click nerede gerçekleşiyorsa onu veriyor. console dan takip edebiliriz.
+    // console.log(event.target);//target click nerede gerçekleşiyorsa onu veriyor. console dan takip edebiliriz.
     //kutunun dıiına tıklanınca da kapansın istiyoruz.
     //tek bir class tanımlıysa bunu kullanabiliriz.
 // if(event.target.className=="main-modal"){
@@ -23,9 +23,6 @@ if(event.target.classList.contains("main-modal")){
 };
   
 });
-
-
-
 
 
 function closeModal(){
