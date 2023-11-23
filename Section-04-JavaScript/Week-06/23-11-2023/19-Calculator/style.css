@@ -80,6 +80,7 @@ button:hover {
 .sign-operator{
     background-color: #336cac;
     color: #fff;
+    grid-area: 2 / 4 / 6 / 5;
    /*ilk ikisi başlangıç koordinat son ikisi bitiş. amacımız = işaretini istediğimiz yere taşımak */
     height: 100%;
 }
