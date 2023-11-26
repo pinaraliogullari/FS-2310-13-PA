@@ -24,26 +24,7 @@ let result={
 }
 
 
-export const getOddNumbers = (numbers) => {
-    const result = [];
-    for (const i in numbers) {
-        if (numbers[i] % 2 != 0) result.push(numbers[i]);
-    }
 
-    return result;
-}
-
-export const getEvenNumbers = (numbers) => {
-    const result = [];
-    //for in den farklı olarak indexe değil direkt elemana bak deriz. 1. indexe bak yerine git 10 a bak gibi
-    for (const nextNumber of numbers) {
-        if (nextNumber % 2 == 0) {
-            result.push(nextNumber);
-        }
-    }
-    return result;
-
-}
 
 
 

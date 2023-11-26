@@ -1,3 +1,3 @@
 import  calculateFactorial, {display}  from "./factorial.js";
-console.log(calculateFactorial(5));
+console.log(calculateFactorial(1));
 display();
