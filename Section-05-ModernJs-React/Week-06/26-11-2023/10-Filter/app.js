@@ -1,8 +1,8 @@
 //MAP
 
 let numbers = [4, 914, 20, 19];
-let newNumbers= numbers.map(nextNumber=>{
-    if(nextNumber>=10) return nextNumber;
+let newNumbers = numbers.map(nextNumber => {
+    if (nextNumber >= 10) return nextNumber;
 });
 
 console.log(numbers);
@@ -15,6 +15,7 @@ console.log(newNumbers);
 // });
 
 //KISA YAZIMI
-let newNumbersFilters=numbers.filter(nextNumber=>nextNumber>=15);
+let newNumbersFilters = numbers.filter(nextNumber => nextNumber >= 15);
 
 console.log(newNumbersFilters);
+
