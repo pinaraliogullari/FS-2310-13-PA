@@ -1,14 +1,13 @@
-
 import './App.css';
-import { Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from "./Header.js";
+import { Container, Row, Col, Nav, Navbar, Image, Button, Card } from "react-bootstrap";
+import Products from './Products.js';
 
 function App() {
   return (
     <>
-      <div >
-        <Button variant='primary'>Primary</Button>
-      </div>
+      <Header />
+      <Products />
     </>
   );
 }
