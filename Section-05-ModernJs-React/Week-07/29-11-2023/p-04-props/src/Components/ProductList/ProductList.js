@@ -1,15 +1,12 @@
 import React from 'react';
 import Product from '../Product/Product';
 
-function ProductList(products) {
+function ProductList( props ) {
   return (
     <>
-  {
-    products.forEach(p => {
-    <Product product={p}/>  
-    })};
-  
-
+      {
+       props.products.map(p => <Product key={p.id} product={p} />)
+      }
     </>
   )
 }
