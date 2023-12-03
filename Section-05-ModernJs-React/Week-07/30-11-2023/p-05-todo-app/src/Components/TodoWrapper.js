@@ -13,7 +13,7 @@ const TodoWrapper = () => {
             desc: todo,
             completed: false,
         }]);
-     
+
     };
 
 
@@ -22,8 +22,8 @@ const TodoWrapper = () => {
 
             <div className='TodoWrapper'>
                 <h1>FS-2310-13 Todo App</h1>
-                <TodoForm  addTodo={addTodo}/>
-       
+                <TodoForm addTodo={addTodo} />
+
             </div>
         </>
     )
