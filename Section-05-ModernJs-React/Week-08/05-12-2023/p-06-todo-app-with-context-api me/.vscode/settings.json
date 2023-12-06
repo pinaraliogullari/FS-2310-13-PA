@@ -6,8 +6,23 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        "[!s]*/**": true,
-        "s[!r]*/**": true,
-        "sr[!c]*/**": true
+        "[!t]*/**": true,
+        "t[!o]*/**": true,
+        "to[!d]*/**": true,
+        "tod[!o]*/**": true,
+        "todo[!-]*/**": true,
+        "todo-[!c]*/**": true,
+        "todo-c[!o]*/**": true,
+        "todo-co[!n]*/**": true,
+        "todo-con[!t]*/**": true,
+        "todo-cont[!e]*/**": true,
+        "todo-conte[!x]*/**": true,
+        "todo-contex[!t]*/**": true,
+        "todo-context[!a]*/**": true,
+        "todo-contexta[!p]*/**": true,
+        "todo-contextap[!i]*/**": true,
+        "todo-contextapi/[!s]*/**": true,
+        "todo-contextapi/s[!r]*/**": true,
+        "todo-contextapi/sr[!c]*/**": true
     }
 }

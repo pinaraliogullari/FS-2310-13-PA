@@ -17,8 +17,8 @@ const TodoEditForm = ({ task }) => {
 
         <form onSubmit={handleSubmit}>
             <div className="input-group mb-3">
-                <input onChange={(e) => { setDesc(e.target.value) }} value={desc} type="text" className="form-control" placeholder="What is the task today?" aria-describedby="button-addon2" />
-                <button  className="btn btn-outline-warning" type="submit" id="btn-add-task">Update</button>
+                <input onChange={(e) => { setDesc(e.target.value) }} value={desc} type="text" className="form-control bg-light" placeholder="What is the task today?" aria-describedby="button-addon2" />
+                <button className="btn btn-warning" type="submit" id="btn-add-task">Update</button>
             </div>
         </form>
 

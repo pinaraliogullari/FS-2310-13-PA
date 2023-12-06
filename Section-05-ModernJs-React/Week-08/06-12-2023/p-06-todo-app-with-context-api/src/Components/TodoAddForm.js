@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { TodoContext } from '../Contexts/TodoContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 const TodoAddForm = () => {
     const context = useContext(TodoContext);
@@ -16,20 +18,15 @@ const TodoAddForm = () => {
         }
     }
     return (
-        <div className='container-fluid g-0'>
+        <div className='container-fluid g-0 m-0'>
             <h1 className="display-5 text-center mb-5 text-danger">Todo App</h1>
             <form onSubmit={handleSubmit}>
-                <div className="input-group mb-3">
+                <div className="input-group mb-1">
                     <input onChange={(e) => { setDesc(e.target.value) }} value={desc} type="text" className="form-control" placeholder="What is the task today?" aria-describedby="button-addon2" />
-                    <button className="btn btn-outline-success" type="submit" id="btn-add-task">Add Task</button>
-                    <button className="btn btn-danger" type="button" id="btn-add-task" onClick={() => { context.clearAll() }}>Clear All</button>
-
-
-                </div>
-                <div>
-                    <button className="btn btn-outline-success" type="button" id="btn-add-task" onClick={() => { context.all() }}>All</button>
-                    <button className="btn btn-outline-success" type="button" id="btn-add-task" onClick={() => { context.pending(taskId)}}>Completed</button>
-                    <button className="btn btn-outline-success" type="button" id="btn-add-task">Pending</button>
+                    <button className="btn btn-outline-success" type="submit" id="btn-add-task">
+                        {/* <FontAwesomeIcon icon={faCirclePlus} size='2xl' /> */}
+                        <FontAwesomeIcon icon={faCirclePlus} className='fs-1' />
+                    </button>
 
                 </div>
             </form>
