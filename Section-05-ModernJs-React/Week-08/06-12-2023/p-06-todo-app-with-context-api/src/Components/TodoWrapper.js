@@ -8,8 +8,8 @@ import TodoFilter from './TodoFilter';
 
 const TodoWrapper = () => {
 
-    const [taskList, setTaskList] = useState(
-        localStorage.getItem("todo-app-react") != null ? JSON.parse(localStorage.getItem("todo-app-react")) : []    //    buraya boş dizi verirsek sayfa yenilendiğinde local storage  boş görünecek. o yüzden başlangıç değeri verdik.
+    const [taskList, setTaskList] = useState([]
+           //    buraya boş dizi verirsek sayfa yenilendiğinde local storage  boş görünecek. o yüzden başlangıç değeri verdik.
 
         );
     const [filterMode, setFilterMode] = useState("all");
@@ -18,7 +18,7 @@ const TodoWrapper = () => {
         getLocalStorage(); /* Bu fonksiyon, "todo-app-react" anahtarını kullanarak localStorage'dan veriyi alır. Eğer veri mevcutsa, bu veriyi JSON formatından çıkarıp setTaskList fonksiyonu aracılığıyla bileşenin taskList durumunu günceller. */
     }, [])
     useEffect(() => {
-        setLocalStorage(); /* Bu fonksiyon, localStorage'a "todo-app-react" anahtarını kullanarak taskList'i JSON formatında kaydeder. */
+        setLocalStorage(); /* Bu fonksiyon, localStorage'a "todo-app-react" anahtarını kullanarak taskList'i JSON formatında kaydeder.taskList güncellendikçe useEffect tetiklenir. */
     }, [taskList])
 
     const addTask = _desc => {
