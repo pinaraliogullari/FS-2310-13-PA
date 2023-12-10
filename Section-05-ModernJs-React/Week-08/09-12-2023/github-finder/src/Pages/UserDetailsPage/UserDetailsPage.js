@@ -16,7 +16,7 @@ const UserDetailsPage = () => {
       <Container className='w-75 py-4'>
         <Card>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} >
               <Card.Header className='display-6 text-danger'>
                 {context.user.name} ({context.user.login})
               </Card.Header>

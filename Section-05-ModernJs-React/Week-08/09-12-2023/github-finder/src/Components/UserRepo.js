@@ -12,4 +12,4 @@ const UserRepo = ({ userRepoName, userRepoUrl }) => {
   )
 }
 
-export default UserRepo
+export default UserRepo;
