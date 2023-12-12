@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Navbar, NavbarBrand, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { AppContext } from '../Contexts/AppContext';
 
 const Header = () => {
+  const context=useContext(AppContext);
+
   return (
     <>
       <Navbar bg='primary' variant='dark'>
@@ -12,7 +15,7 @@ const Header = () => {
           </NavbarBrand>
           <Nav className="ms-auto">
             <NavLink className="nav-link" to="/">Home</NavLink>
-            <NavLink className="nav-link" to="/search">Search</NavLink>
+            <NavLink onClick={() => { context.handleClearAllClick(); context.setUser({}) }} className="nav-link" to="/search">Search</NavLink>
           </Nav>
         </Container>
       </Navbar>

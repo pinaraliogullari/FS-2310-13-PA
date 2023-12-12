@@ -12,6 +12,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
   const [userRepos, setUserRepos] = useState([])
+  const [keyword, setKeyword] = useState("");
   const [isClearButtonShow, setIsClearButtonShow] = useState(false);
 
   const token = "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";
@@ -19,6 +20,12 @@ function App() {
     headers: { Authorization: `Bearer ${token}` }
   }
     ;
+  const handleClearAllClick = () => {
+    setUsers([]);
+    setKeyword("");
+    setIsClearButtonShow(false);
+  }
+
 
   const searchUsers = (keyword) => {
     Axios
@@ -44,7 +51,7 @@ function App() {
 
   return (
     <>
-      <AppContext.Provider value={{ users, getUser, setUser, user, userRepos, getRepos, searchUsers, setUsers, isClearButtonShow, setIsClearButtonShow }}>
+      <AppContext.Provider value={{ users, getUser, setUser, user, userRepos, getRepos, searchUsers, setUsers, isClearButtonShow, setIsClearButtonShow, handleClearAllClick,setKeyword , keyword}}>
         <BrowserRouter>
           <Header />
           <Routes>
