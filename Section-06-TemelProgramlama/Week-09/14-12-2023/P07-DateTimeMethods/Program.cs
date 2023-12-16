@@ -34,6 +34,7 @@
 
             //ARAŞTIRMA ÖDEVİ: C# ta tarihlerle ilgili yapılabilecek işlemleri araştırnız.
             //3 ay sonrasını veren bir fonk var mı mesela?
+            Console.WriteLine(DateTime.Now.AddMonths(3).ToShortDateString());
             Console.ReadLine();
         }
     }
