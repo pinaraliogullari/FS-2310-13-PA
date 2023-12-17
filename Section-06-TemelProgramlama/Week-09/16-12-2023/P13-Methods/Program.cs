@@ -104,22 +104,38 @@ namespace P13_Methods
         //5)Şifre 6 karakterden oluşmalı.
         //6) Büyük harf kullanılmamalı.
 
-        static void sifreUret2()
+        static string SifreUret2()
         {
             string harfler = "abcçdefgğhıijklmnoöprsştuüvyz";
             string rakamlar = "0123456789";
             string ozelKarakterler = ".,+-";
-            string[] password = new string[6];
+            char[] password = new char[6];
             Random random = new Random();
-            for(int i = 0; i < 6; i++)
-            {
-                password = harfler[random.Next(0, harfler.Length)];
-            }
-            string[0]=
-            
-          
 
+         
+            password[0] = harfler[random.Next(0, harfler.Length)];
+
+
+            int rakamIndex = random.Next(1, 6);
+            password[rakamIndex] = rakamlar[random.Next(0, rakamlar.Length)];
+
+
+            password[random.Next(1, 6)] = ozelKarakterler[random.Next(0, ozelKarakterler.Length)];
+
+
+            for (int i = 1; i < 6; i++)
+            {
+                if (password[i] == 0) // Boş olanları harf ile doldur
+                {
+                    password[i] = harfler[random.Next(0, harfler.Length)];
+                }
+            }
+   
+            string olusturulanParola = new string(password);
+
+            return olusturulanParola;
         }
+    
 
 
 
@@ -147,7 +163,8 @@ namespace P13_Methods
 
             //Console.WriteLine(sifreUret());
 
-
+            string sifre=SifreUret2();
+            Console.WriteLine(sifre);
             Console.ReadLine();
         }
     }
