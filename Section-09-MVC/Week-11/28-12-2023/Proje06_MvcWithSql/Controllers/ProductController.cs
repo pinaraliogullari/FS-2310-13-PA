@@ -1,20 +1,23 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace Proje05_MVCIntro.Controllers
+namespace Proje06_MvcWithSql.Controllers
 {
-    //ProductController  Controllerdan kalıtım almalı bunun için bu kütüphane eklenmeli using Microsoft.AspNetCore.Mvc;
+
     public class ProductController : Controller
     {
+        
+
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult AddProduct(){
-            return View();
-        }
+
+      
     }
 }
