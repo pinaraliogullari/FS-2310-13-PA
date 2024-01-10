@@ -57,7 +57,14 @@ namespace MiniShop.Data.Config
                        Name = "Beyaz Eşya",
                        Description = "Beyaz Eşya kategorisi",
                        Url = "beyaz-esya"
-                   }
+                   },
+                       new Category
+                       {
+                           Id = 5,
+                           Name = "Telefon",
+                           Description = "Telefon kategorisi",
+                           Url = "telefon"
+                       }
 
                 );
         }

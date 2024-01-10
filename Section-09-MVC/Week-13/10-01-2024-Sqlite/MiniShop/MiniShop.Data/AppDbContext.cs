@@ -16,13 +16,15 @@ namespace MiniShop.Data
         public DbSet<CategoryProduct> CategoryProducts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-QE6JDF1\SQLEXPRESS;Database=MiniShopDb;User Id=sa;Password=pe969416; TrustServerCertificate=true");
+            optionsBuilder.UseSqlite(@"Data Source=MiniShop.sqlite");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
          
             modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new ProductConfig());
+            modelBuilder.ApplyConfiguration(new CategoryProductConfig());
           
 
 

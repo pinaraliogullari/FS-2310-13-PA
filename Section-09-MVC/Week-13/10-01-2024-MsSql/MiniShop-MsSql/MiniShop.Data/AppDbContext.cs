@@ -23,6 +23,8 @@ namespace MiniShop.Data
         {
          
             modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new ProductConfig());
+            modelBuilder.ApplyConfiguration(new CategoryProductConfig());
           
 
 
