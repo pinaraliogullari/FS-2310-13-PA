@@ -1,6 +1,6 @@
-﻿namespace MiniShop.Mvc.Models
+﻿namespace MiniShop.Core.ViewModels
 {
-    //buradaki view modal kullanım amacı: kullanıcıya sunmak istediğimiz bilgileri düzenlemek. ama benim bildiğim view modal: birden fazla nesne gönderiminde kullanılan bir yol.
+   
     public class ProductViewModel
     {
         public int Id { get; set; }
