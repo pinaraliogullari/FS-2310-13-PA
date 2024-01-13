@@ -8,16 +8,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MiniShop.Data.Concrete;
+using Microsoft.EntityFrameworkCore;
 
 namespace MiniShop.Business.Concrete
 {
     public class ProductManager : IProductService
     {
         private IProductRepository _productRepository;
-
-        public ProductManager(IProductRepository productRepository)
+        DbContext rnd;
+        public ProductManager()
         {
-            _productRepository = productRepository;
+            _productRepository = new ProductRepository();
         }
 
         public void Create(ProductViewModel model)

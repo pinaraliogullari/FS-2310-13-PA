@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=MiniShop.sqlite"));
-builder.Services.AddScoped<IProductService, ProductManager>();
-builder.Services.AddScoped<IProductRepository,ProductRepository>();
+builder.Services.AddSingleton<IProductService, ProductManager>();
+builder.Services.AddTransient<IProductRepository,ProductRepository>();
 
 var app = builder.Build();
 
