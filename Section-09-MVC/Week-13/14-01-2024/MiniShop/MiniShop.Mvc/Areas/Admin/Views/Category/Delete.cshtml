@@ -1,0 +1,51 @@
+﻿@model CategoryViewModel
+
+<div class="container w-50">
+    <h1 class="display-6 text-primary mt-5">Silinecek Kategori Bilgileri</h1>
+    <div class="row">
+        <div class="col-md-8">
+
+            <table class="table mt-5">
+                <tr>
+                    <th>Kategori Adı</th>
+                    <th>Kategori Açıklaması</th>
+                    <th>Kategori Url</th>
+
+
+                </tr>
+                <tr>
+                    <td>@Model.Name</td>
+                    <td>@Model.Description</td>
+                    <td>@Model.Url</td>
+                </tr>
+
+            </table>
+
+        </div>
+        <div class="col-md-3 mt-5  ms-1">
+            <div>
+                <a 
+                    asp-area="Admin"
+                    asp-controller="Category"
+                    asp-action="SoftDelete"
+                    asp-route-id="@Model.Id"
+                    class="btn btn-warning  mb-3 ">Çöpe Gönder</a>
+            </div>
+            <div>
+                <a
+                    asp-area="Admin"
+                    asp-controller="Category"
+                    asp-action="HardDelete"
+                    asp-route-id="@Model.Id"
+                    class="btn btn-danger  ">Kalıcı Olarak Sil</a>
+
+            </div>
+        </div>
+    </div>
+
+       
+
+
+
+
+</div>

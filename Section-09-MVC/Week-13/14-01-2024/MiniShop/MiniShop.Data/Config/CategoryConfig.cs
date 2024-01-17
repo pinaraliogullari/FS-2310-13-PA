@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Data.Config
 {
+    
     public class CategoryConfig : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(c => c.Id);//Primary Key
             builder.Property(c => c.Id).ValueGeneratedOnAdd();//IdentitySpeficitation
+
             //modelBuilder.Entity<Category>().Property(c => c.Name).IsRequired();
             //modelBuilder.Entity<Category>().Property(c => c.Name).HasMaxLength(50);
             builder

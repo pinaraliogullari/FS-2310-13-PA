@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Data.Concrete
 {
+    //GenericRepository sınıfının amacı, belirli bir varlık türüyle ilgili genel veritabanı işlemlerini sağlamaktır.Bu nedenle, sınıfın içindeki _dbContext alanı, genel repository işlemlerini gerçekleştirmek için kullanılacak DbContext örneğini tutar.
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class
     {
@@ -27,6 +28,7 @@ namespace MiniShop.Data.Concrete
             List<TEntity> entities = _dbContext.Set<TEntity>().ToList();
             return entities;
         }
+
 
         public TEntity GetById(int id)
         {

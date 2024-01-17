@@ -10,7 +10,7 @@ namespace MiniShop.Entity
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public DateTime ModifiedDate { get; set; }= DateTime.Now;
+        public DateTime ModifiedDate { get; set; } = DateTime.Now;
         public bool IsActive { get; set; } = true;
         public bool IsDelete { get; set; }
         public string Url { get; set; }
