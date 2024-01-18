@@ -14,9 +14,9 @@ namespace MiniShop.Business.Concrete
     {
         private readonly IMapper _mapper;
 
-        public CategoryManager(IMapper mapper)
+        public CategoryManager(IMapper mapper) //container yani IOS den gelen mapperı parametre olarak aldık(eklemesini program.cs tek  yapmıştık)
         {
-            _mapper = mapper;
+            _mapper = mapper; //ve enjete ettik.
         }
 
         public Task<CategoryDTO> CreateAsync(CategoryDTO categoryDTO)

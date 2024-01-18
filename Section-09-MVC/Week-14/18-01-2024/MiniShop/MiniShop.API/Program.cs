@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using MiniShop.Business.Abstract;
+using MiniShop.Business.Concrete;
+using MiniShop.Data.Abstract;
 using MiniShop.Data.Concrete.Contexts;
+using MiniShop.Data.Concrete.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +18,9 @@ options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"))
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //bu komut AutoMapper'ý uygulamaya ekler ve tüm uygulama alanýndaki tipleri kullanarak AutoMapper'ý yapýlandýrýr, böylece sýnýflar arasýnda otomatik nesne eþleme yeteneklerini kullanabiliriz.
 
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); //categoryrepo tipinde bir nesne yaratýp containera býrakýyoruz.
 
 
 
