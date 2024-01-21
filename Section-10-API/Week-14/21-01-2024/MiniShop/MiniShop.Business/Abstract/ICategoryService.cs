@@ -13,7 +13,6 @@ namespace MiniShop.Business.Abstract
         #region Generic
         Task<Response<CategoryDTO>> GetByIdAsync(int id);
         Task<Response<List<CategoryDTO>>> GetAllAsync();
-        Task<Response<List<CategoryDTO>>> GetNonDeletedCategories();
         Task<Response<CategoryDTO>> CreateAsync(AddCategoryDTO addCategoryDTO);
         Task<Response<CategoryDTO>> UpdateAsync(EditCategoryDTO editCategoryDTO);
         Task <Response<NoContent>> HardDeleteASync(int id); 
@@ -24,7 +23,12 @@ namespace MiniShop.Business.Abstract
         #region Category
 
         Task<Response<List<CategoryDTO>>> GetAllCategoriesWithProductAsync();
-      
+        Task<Response<List<CategoryDTO>>> GetIsDeletedCategories(bool isDeleted = false);
+        Task<Response<List<CategoryDTO>>> GetIsActiveCategories(bool isActive = true);
+
+
+
+
         #endregion
     }
 }

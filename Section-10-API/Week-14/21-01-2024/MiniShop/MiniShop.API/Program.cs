@@ -5,12 +5,15 @@ using MiniShop.Business.Mappings;
 using MiniShop.Data.Abstract;
 using MiniShop.Data.Concrete.Contexts;
 using MiniShop.Data.Concrete.Repositories;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 
-builder.Services.AddControllers();//mvc uygulamasý olsaydý burada AddControllersWithView yazardý.
+builder.Services.AddControllers()
+    .AddJsonOptions(options=>options.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.IgnoreCycles);
+
 
 //burada üretilen ve container içine koyulan  MiniShopDbContext istediðimiz zaman constructor ile almamýzý bekliyor.
 //constructor ile aldýðýmýzda dependency injection yapmýþ oluyoruz. bu sayede kullanacaðýmýz yerde newleme yapmamýza gerek kalmýyor.
@@ -22,8 +25,12 @@ options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"))
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //bu komut AutoMapper'ý uygulamaya ekler ve tüm uygulama alanýndaki tipleri kullanarak AutoMapper'ý yapýlandýrýr, böylece sýnýflar arasýnda otomatik nesne eþleme yeteneklerini kullanabiliriz.
 
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
+builder.Services.AddScoped<IProductService, ProductManager>();
+
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); //categoryrepo tipinde bir nesne yaratýp containera býrakýyoruz.ve ne zaman ICateforyRepository dersek bize CategoryRepository veriliyor.
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 
 

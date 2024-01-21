@@ -27,13 +27,9 @@ namespace MiniShop.Data.Concrete.Repositories
             return entity;
         }
 
-        public async Task<List<TEntity>> GetAllAsync()
-        {
-            List<TEntity> entities = await _dbContext.Set<TEntity>().ToListAsync();
-            return entities;
-        }
+ 
 
-        public  async Task<List<TEntity>> GetAllAsyncNew(Expression<Func<TEntity, bool>> options = null)
+        public  async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> options = null)
         {
             IQueryable < TEntity > query =  _dbContext.Set<TEntity>();
             if (options != null)

@@ -72,12 +72,28 @@ namespace MiniShop.Business.Concrete
             return Response<CategoryDTO>.Success(categoryDTO, 200);
         }
 
-        public async Task<Response<List<CategoryDTO>>> GetNonDeletedCategories()
+        //bu fonksiyon ihtiyaca göre silinen veya silinmeyenleri getirir.
+        public async Task<Response<List<CategoryDTO>>> GetIsDeletedCategories(bool isDeleted=false)
         {
-            var categoryList = await _repository.GetAllAsyncNew(c => !c.IsDeleted && c.IsActive);
+            var categoryList = await _repository.GetAllAsync(c => c.IsDeleted==isDeleted);
+            string status = isDeleted ? " silinmis" : "silinmemis";
             if (categoryList == null)
             {
-                return Response<List<CategoryDTO>>.Fail("Hiç kategori bulunamadı", 301);
+                return Response<List<CategoryDTO>>.Fail($"Hiç {status} kategori bulunamadı", 301);
+            }
+            var categoryDTOList = _mapper.Map<List<CategoryDTO>>(categoryList);
+            return Response<List<CategoryDTO>>.Success(categoryDTOList, 200); ;
+        }
+
+        public async Task <Response<List<CategoryDTO>>> GetIsActiveCategories(bool isActive=true)
+        {
+            var categoryList= await _repository.GetAllAsync(c=>c.IsActive==isActive);
+            string status = isActive ? " aktif" : "aktif olmayan";
+
+            if (categoryList == null)
+            {
+                return Response<List<CategoryDTO>>.Fail($"Hiç {status} kategori bulunamadı", 301);
+
             }
             var categoryDTOList = _mapper.Map<List<CategoryDTO>>(categoryList);
             return Response<List<CategoryDTO>>.Success(categoryDTOList, 200); ;
@@ -106,6 +122,7 @@ namespace MiniShop.Business.Concrete
             }
                 deletedCategory.IsDeleted = true;
                 deletedCategory.ModifiedDate=DateTime.Now;
+                 deletedCategory.IsActive = false;
                 await _repository.UpdateAsync(deletedCategory);
                 return Response<NoContent>.Success(200);
         }
