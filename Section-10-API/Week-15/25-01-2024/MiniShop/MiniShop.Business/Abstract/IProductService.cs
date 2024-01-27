@@ -26,6 +26,8 @@ namespace MiniShop.Business.Abstract
         Task<Response<ProductDTO>> GetProductWithCategoriesAsync(int id);
         Task<Response<List<ProductDTO>>> GetProductsByCategoryIdAsync(int categoryId);
         Task<Response<NoContent>> UpdateIsHomeAsync(int id);
+        Task<Response<NoContent>> UpdateIsActiveAsync(int id);
+
         #endregion
     }
 }

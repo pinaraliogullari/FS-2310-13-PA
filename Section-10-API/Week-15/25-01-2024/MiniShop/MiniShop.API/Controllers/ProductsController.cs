@@ -98,6 +98,15 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
+        [HttpPost("updateisactive/{id}")]
+        public async Task<IActionResult> UpdateIsActive(int id)
+        {
+
+            var response = await _productManager.UpdateIsActiveAsync(id);
+            var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);
+        }
+
         [HttpDelete("harddelete/{id}")]
         public async Task<IActionResult> HardDelete(int id)
         {

@@ -11,7 +11,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    @*     <li class="breadcrumb-item"><a href="#">Home</a></li> *@
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
                         <li class="breadcrumb-item active">DataTables</li>
                     </ol>
                 </div>
@@ -60,8 +61,10 @@
                                                     method="post"
                                                 >
                                                     <div class="custom-control custom-switch">
-                                                        <input onchange="document.getElementById('isHomeForm_@p.Id').submit();"
-                                                            type="checkbox" class="custom-control-input" id="isHome_@p.Id" @(p.IsHome ? "checked" : "") />
+                                                        <input 
+                                                            onchange="document.getElementById('isHomeForm_@p.Id').submit();"
+                                                            type="checkbox" class="custom-control-input" 
+                                                            id="isHome_@p.Id" @(p.IsHome ? "checked" : "") />
                                                         <label class="custom-control-label" for="isHome_@p.Id"></label>
                                                     </div>
                                                 </form>
@@ -69,10 +72,23 @@
                                              
                                             </td>
                                             <td>
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="isActive_@p.Id" @(p.IsActive ? "checked" : "") />
-                                                    <label class="custom-control-label" for="isActive_@p.Id"></label>
-                                                </div>
+                                                   <form
+                                                   id="isActiveForm_@p.Id"
+                                                   asp-area="Admin"
+                                                   asp-controller="Product"
+                                                   asp-action="UpdateIsActive"
+                                                   asp-route-id="@p.Id"
+                                                   method="post"
+                                               
+                                               >
+                                                    <div class="custom-control custom-switch">
+                                                        <input
+                                                            onchange="document.getElementById('isActiveForm_@p.Id').submit();"
+                                                            type="checkbox" class="custom-control-input"
+                                                            id="isActive_@p.Id" @(p.IsActive ? "checked" : "") />
+                                                        <label class="custom-control-label" for="isActive_@p.Id"></label>
+                                                    </div>
+                                               </form>
                                             </td>
                                             <td>#</td>
 

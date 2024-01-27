@@ -151,6 +151,21 @@ namespace MiniShop.Business.Concrete
 
         }
 
+        public async Task<Response<NoContent>> UpdateIsActiveAsync(int id)
+        {
+            var product = await _repository.GetByIdAsync(id);
+            if (product == null)
+            {
+                return Response<NoContent>.Fail("İlgili ürün bulunamadı", 404);
+
+            }
+
+            product.IsActive=!product.IsActive;
+            product.ModifiedDate= DateTime.Now;
+            await _repository.UpdateAsync(product);
+            return Response<NoContent>.Success(200);
+        }
+
         public async Task<Response<NoContent>> UpdateIsHomeAsync(int id)
         {
             var product = await _repository.GetByIdAsync(id);
@@ -165,5 +180,7 @@ namespace MiniShop.Business.Concrete
             await _repository.UpdateAsync(product);
             return Response<NoContent>.Success(200);
         }
+
+        
     }
 }

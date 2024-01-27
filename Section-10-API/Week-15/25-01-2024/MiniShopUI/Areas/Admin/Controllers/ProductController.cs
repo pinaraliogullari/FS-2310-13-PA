@@ -34,5 +34,18 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             
             return RedirectToAction("Index" );
         }
+
+        public async Task<IActionResult> UpdateIsActive(int id)
+        {
+            HttpClient httpClient= new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri($"http://localhost:7700/products/updateisactive/{id}"),
+                Content = new StringContent("", Encoding.UTF8, "application/json")
+            };
+            HttpResponseMessage response= await httpClient.SendAsync(request);
+            return RedirectToAction("Index" );
+        }
     }
 }
