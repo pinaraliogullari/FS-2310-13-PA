@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using MiniShop.MVC.Areas.Admin.Models;
 using MiniShop.MVC.Helpers;
 using System.Text;
@@ -9,6 +10,11 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductController : Controller
     {
+        private readonly IMapper _mapper;
+        public ProductController(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
         public async Task<IActionResult> Index()
         {
             Response<List<ProductViewModel>> response = new Response<List<ProductViewModel>>();
@@ -126,20 +132,21 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             ProductViewModel productViewModel = await GetProductAsync(id);
-            EditProductViewModel model = new EditProductViewModel
-            {
-                Id = productViewModel.Id,
-                Name = productViewModel.Name,
-                ImageUrl = productViewModel.ImageUrl,
-                IsActive = productViewModel.IsActive,
-                IsHome = productViewModel.IsHome,
-                Price = productViewModel.Price,
-                Properties = productViewModel.Properties,
-                Url = productViewModel.Url,
-                CategoryIds = productViewModel.Categories.Select(c => c.Id).ToList(),//category idyi seçtik.
-                Categories = await GetCategoriesAsync(),
-            };
-
+            var model= _mapper.Map<EditProductViewModel>(productViewModel);
+            //EditProductViewModel model = new EditProductViewModel
+            //{
+            //    Id = productViewModel.Id,
+            //    Name = productViewModel.Name,
+            //    ImageUrl = productViewModel.ImageUrl,
+            //    IsActive = productViewModel.IsActive,
+            //    IsHome = productViewModel.IsHome,
+            //    Price = productViewModel.Price,
+            //    Properties = productViewModel.Properties,
+            //    Url = productViewModel.Url,
+            //    CategoryIds = productViewModel.Categories.Select(c => c.Id).ToList(),//category idyi seçtik.
+            
+            //};
+			Categories = await GetCategoriesAsync(),
             return View(model);
 
         }
@@ -172,16 +179,17 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             ProductViewModel  productViewModel = await GetProductAsync(id);
-            DeleteProductViewModel model = new DeleteProductViewModel
-            {
-                Id = productViewModel.Id,
-                Name = productViewModel.Name,
-                Price = productViewModel.Price,
-                CreatedDate = productViewModel.CreatedDate,
-                ModifiedDate = productViewModel.ModifiedDate,
-                IsDeleted = productViewModel.IsDeleted,
+            var model=_mapper.Map<DeleteProductViewModel>(productViewModel);
+            //DeleteProductViewModel model = new DeleteProductViewModel
+            //{
+            //    Id = productViewModel.Id,
+            //    Name = productViewModel.Name,
+            //    Price = productViewModel.Price,
+            //    CreatedDate = productViewModel.CreatedDate,
+            //    ModifiedDate = productViewModel.ModifiedDate,
+            //    IsDeleted = productViewModel.IsDeleted,
 
-            };
+            //};
             return View(model);
         }
     }
