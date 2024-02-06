@@ -197,7 +197,7 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<List<ProductDTO>>> GetAllNonDeletedAsync(bool isDeleted=false)
         {
-            var productList = await _repository.GetAllAsync(p=>p.IsDeleted==isDeleted);
+            var productList = await _repository.GetAllAsync(p=>p.IsDeleted == isDeleted);
             if (productList == null)
             {
                 return Response<List<ProductDTO>>.Fail("Hiç ürün bulunamadı", 301);

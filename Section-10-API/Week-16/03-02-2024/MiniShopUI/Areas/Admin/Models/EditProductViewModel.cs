@@ -10,21 +10,19 @@ namespace MiniShop.MVC.Areas.Admin.Models
 {
     public class EditProductViewModel
     {
-
         public int Id { get; set; }
 
         [JsonPropertyName("Name")]
-        [DisplayName("Ürün")] //bunu yapma sebebimiz merkezi bir yerden isimleri kontrol etmek istememiz. bir çok yerde varsa her yerden deðiþtirmemize gerek kalmaz. 
-        [Required(ErrorMessage = "{0} alaný boþ býrakýlamaz.")]   //validation için mvcnin bize sunduðu data annotaiýný kullanacaðýz. baþka yollarý da var.
+        [DisplayName("Ürün")]
+        [Required(ErrorMessage ="{0} alaný boþ býrakýlamaz.")]
         [MinLength(5,ErrorMessage ="{0} alanýna uzunluðu {1} karakterden küçük deðer girilemez.")]
-
-
+        [MaxLength(100,ErrorMessage ="{0} alanýna uzunluðu {1} karakterden büyük deðer girilemez.")]
         public string Name { get; set; }
 
 
-        [JsonPropertyName("Properties")]//Jsondan glen keyin adý
-        [DisplayName("Ürün Özellikleri")] //görünecek olan isim
-        public string Properties { get; set; } //benim tercih ettiðim isim 
+        [JsonPropertyName("Properties")]
+        [DisplayName("Ürün Özellikleri")]
+        public string Properties { get; set; }
 
         
         [JsonPropertyName("Price")]
@@ -32,10 +30,10 @@ namespace MiniShop.MVC.Areas.Admin.Models
         [Required(ErrorMessage = "{0} alaný boþ býrakýlamaz.")]
         public decimal? Price { get; set; }
 
-
+        
         [JsonPropertyName("ImageUrl")]
         [DisplayName("Resim")]
-        public string ImageUrl { get; set; } 
+        public string ImageUrl { get; set; }
 
 
         [JsonPropertyName("Url")]
@@ -53,7 +51,7 @@ namespace MiniShop.MVC.Areas.Admin.Models
 
 
         [JsonPropertyName("CategoryIds")]
-        public List<int> CategoryIds { get; set; }
+        public List<int> CategoryIds { get; set; } 
 
 
         [DisplayName("Kategoriler")]

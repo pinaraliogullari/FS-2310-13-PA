@@ -30,8 +30,6 @@ builder.Services.AddScoped<IImageHelper, ImageHelper>();
 
 
 
-
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

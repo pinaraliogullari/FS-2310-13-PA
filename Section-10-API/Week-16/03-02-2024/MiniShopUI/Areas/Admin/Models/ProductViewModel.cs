@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MiniShop.MVC.Areas.Admin.Models
 {
-    //apinin sunduðu propertyleri karþýlýyoruz. (ihtiyacýmýz olanlarý.)
     public class ProductViewModel
     {
         [JsonPropertyName("Id")]
@@ -44,7 +43,6 @@ namespace MiniShop.MVC.Areas.Admin.Models
 
         [JsonPropertyName("CategoryList")]
         public List<CategoryViewModel> Categories { get; set; }
-
 
     }
 }

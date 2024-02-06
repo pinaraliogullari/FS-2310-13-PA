@@ -10,15 +10,12 @@ namespace MiniShop.MVC.Areas.Admin.Models
 {
     public class AddProductViewModel
     {
-    
-        //buradakileri jsona çevirip gönderdiðimiz için IFormFile image propunu buraya eklemiyoruz.Create actionuna post olarak ekliyoruz.
 
         [JsonPropertyName("Name")]
-        [DisplayName("Ürün")] //bunu yapma sebebimiz merkezi bir yerden isimleri kontrol etmek istememiz. bir çok yerde varsa her yerden deðiþtirmemize gerek kalmaz. 
-        [Required(ErrorMessage = "{0} alaný boþ býrakýlamaz.")]   //validation için mvcnin bize sunduðu data annotaiýný kullanacaðýz. baþka yollarý da var.
+        [DisplayName("Ürün")]
+        [Required(ErrorMessage ="{0} alaný boþ býrakýlamaz.")]
         [MinLength(5,ErrorMessage ="{0} alanýna uzunluðu {1} karakterden küçük deðer girilemez.")]
-
-
+        [MaxLength(100,ErrorMessage ="{0} alanýna uzunluðu {1} karakterden büyük deðer girilemez.")]
         public string Name { get; set; }
 
 
@@ -53,7 +50,7 @@ namespace MiniShop.MVC.Areas.Admin.Models
 
 
         [JsonPropertyName("CategoryIds")]
-        public List<int> CategoryIds { get; set; }= new List<int>();
+        public List<int> CategoryIds { get; set; } = new List<int>();
 
 
         [DisplayName("Kategoriler")]

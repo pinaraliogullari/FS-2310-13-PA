@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Shared.Helpers.Concrete
 {
-    public  class ImageHelper : IImageHelper
+    public class ImageHelper : IImageHelper
     {
         //localhost:5000/wwwroot/images
         private readonly string _imagesFolder;
+
         public ImageHelper(IWebHostEnvironment _environment)
         {
             _imagesFolder = Path.Combine(_environment.WebRootPath, "images");
@@ -21,7 +22,7 @@ namespace MiniShop.Shared.Helpers.Concrete
 
         public bool ImageIsValid(string extension)
         {
-            string[] correctExtensions = { ".png", ".jpg", ".jpeg" };
+            string[] correctExtensions = { ".png",".jpg",".jpeg" };
             if(correctExtensions.Contains(extension))
             {
                 return true;
@@ -31,7 +32,7 @@ namespace MiniShop.Shared.Helpers.Concrete
 
         public async Task<string> UploadImage(IFormFile image, string folderName)
         {
-            if (image == null)
+            if (image==null)
             {
                 return null;
             }
@@ -42,21 +43,22 @@ namespace MiniShop.Shared.Helpers.Concrete
             }
             //localhost:5000/wwwroot/images/products
             //localhost:5000/wwwroot/images/categories
-            //localhost:5000/wwwroot/images/user
-            var targetFolder=Path.Combine(_imagesFolder, folderName);  
+            //localhost:5000/wwwroot/images/users
+            var targetFolder = Path.Combine(_imagesFolder, folderName);
             if(!Directory.Exists(targetFolder)) 
             { 
                 Directory.CreateDirectory(targetFolder);
             }
 
-         
-            var fileName=$"{Guid.NewGuid()}{fileExtension}";
+            
+            var fileName = $"{Guid.NewGuid()}{fileExtension}";
             var fileFullPath= Path.Combine(targetFolder, fileName);
-            await using(var stream= new FileStream(fileFullPath,FileMode.Create))
+            await using (var stream = new FileStream(fileFullPath, FileMode.Create))
             {
                 image.CopyTo(stream);
             }
             return fileName;
+
         }
     }
 }

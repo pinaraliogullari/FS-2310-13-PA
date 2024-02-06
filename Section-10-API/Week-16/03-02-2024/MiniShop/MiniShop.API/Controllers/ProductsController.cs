@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MiniShop.Business.Abstract;
 using MiniShop.Shared.DTOs;
 using MiniShop.Shared.Helpers.Abstract;
+using MiniShop.Shared.ResponseDTOs;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -27,6 +28,7 @@ namespace MiniShop.API.Controllers
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
+
         [HttpGet("GetAllNonDeleted/{isDeleted?}")]
         public async Task<IActionResult> GetAllNonDeleted(bool isDeleted=false)
         {
@@ -73,7 +75,7 @@ namespace MiniShop.API.Controllers
         }
 
         //[HttpPost("Create")]
-        //public async Task<IActionResult> Create([FromForm]AddProductDTO addProductDTO)
+        //public async Task<IActionResult> Create([FromForm] AddProductDTO addProductDTO)
         //{
         //    addProductDTO.ImageUrl = await _imageHelper.UploadImage(addProductDTO.Image, "products");
         //    var response = await _productManager.CreateAsync(addProductDTO);
@@ -82,7 +84,7 @@ namespace MiniShop.API.Controllers
         //}
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create( AddProductDTO addProductDTO)
+        public async Task<IActionResult> Create(AddProductDTO addProductDTO)
         {
             var response = await _productManager.CreateAsync(addProductDTO);
             var jsonResponse = JsonSerializer.Serialize(response);

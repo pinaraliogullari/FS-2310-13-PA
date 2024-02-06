@@ -14,24 +14,24 @@ namespace MVCFileUploadApp.Controllers
             _logger = logger;
         }
 
-        //herhangibir dosya karşılayacaksak kullanacağımız tip IFormFile
+
         public IActionResult UploadImage(IFormFile image)
         {
             if (image == null)
             {
-                ViewBag.Message = "Resimde bir sorun var. Lütfen tekrar deneyiniz.";
+                ViewBag.Message = "Resimde bir sorun var, lütfen terkar deneyiz.";
                 return View("Index");
             }
             //localhost:5000/wwwroot/images/product5.png
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", image.FileName);
-            using (var stream=new FileStream(path,FileMode.Create))
+            using (var stream = new FileStream(path,FileMode.Create))
             {
                 image.CopyTo(stream);
             }
-                ViewBag.Message = "Resim başarıyla yüklendi";
+
+            ViewBag.Message = "Resim başarıyla yüklendi";
             return View("Index");
         }
-
 
 
         public IActionResult Index()
@@ -42,13 +42,13 @@ namespace MVCFileUploadApp.Controllers
         [HttpGet]
         public IActionResult ResimYukle()
         {
-         
             return View();
         }
 
         [HttpPost]
         public IActionResult ResimYukle(IFormFile image)
         {
+            //Burada resim yükleme için hazırlayacağımız metodu çağıracağız.
             var imageUrl = Uploader.UploadImage(image);
             return View();
         }

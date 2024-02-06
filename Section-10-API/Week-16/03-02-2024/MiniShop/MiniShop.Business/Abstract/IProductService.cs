@@ -18,13 +18,14 @@ namespace MiniShop.Business.Abstract
         Task<Response<NoContent>> SoftDeleteAsync(int id);
         Task<Response<ProductDTO>> GetByIdAsync(int id);
         Task<Response<List<ProductDTO>>> GetAllAsync();
-        Task<Response<List<ProductDTO>>> GetAllNonDeletedAsync(bool isDeleted=false);
+        Task<Response<List<ProductDTO>>> GetAllNonDeletedAsync(bool isDeleted = false);
         Task<Response<List<ProductDTO>>> GetAllProductsWithCategoriesAsync();
         Task<Response<ProductDTO>> GetProductWithCategoriesAsync(int id);
         Task<Response<NoContent>> UpdateIsHomeAsync(int id);
         Task<Response<NoContent>> UpdateIsActiveAsync(int id);
         Task<Response<int>> GetActiveProductCount();
         Task<Response<int>> GetProductCount();
+        
         #endregion
 
 

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -20,10 +20,17 @@
     <ProjectReference Include="..\MiniShop.Business\MiniShop.Business.csproj" />
     <ProjectReference Include="..\MiniShop.Shared\MiniShop.Shared.csproj" />
   </ItemGroup>
+
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
+
 	<ItemGroup>
 	  <Folder Include="wwwroot\" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\2307.jpg" />
+	</ItemGroup>
+
 </Project>
