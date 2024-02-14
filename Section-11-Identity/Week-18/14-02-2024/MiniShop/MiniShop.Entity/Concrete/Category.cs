@@ -13,6 +13,5 @@ namespace MiniShop.Entity.Concrete
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public string Description { get; set; }
         public List<ProductCategory> ProductCategories { get; set; }//Navigation Property
-     
     }
 }

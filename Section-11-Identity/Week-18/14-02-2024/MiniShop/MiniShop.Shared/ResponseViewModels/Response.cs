@@ -26,6 +26,8 @@ namespace MiniShop.Shared.ResponseViewModels
                 IsSucceeded = true
             };
         }
+        
+        
         /// <summary>
         /// Bu metot, işlemin başarılı olduğunu ifade eden bir status code döndürmek için kullanılır.
         /// </summary>
@@ -38,7 +40,8 @@ namespace MiniShop.Shared.ResponseViewModels
                 IsSucceeded = true
             };
         }
-       
+        
+
         /// <summary>
         /// Bu metot, geriye başarısız bir cevap olarak içinde bir hata olan hata listesini döndürmek için kullanılır.
         /// </summary>
@@ -48,7 +51,7 @@ namespace MiniShop.Shared.ResponseViewModels
         {
             return new Response<T>
             {
-                Error =  error ,
+                Error = error,
                 IsSucceeded = false
             };
         }

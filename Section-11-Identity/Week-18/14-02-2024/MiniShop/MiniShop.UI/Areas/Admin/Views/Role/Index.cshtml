@@ -9,12 +9,10 @@
                     <h1>Rol Listesi</h1>
                 </div>
                 <div>
-
-
                     <a asp-area="Admin"
                        asp-controller="Role"
                        asp-action="Create"
-                       class="btn btn-success btn-sm">Yeni Kullanıcı</a>
+                       class="btn btn-success btn-sm">Yeni Rol</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -32,7 +30,7 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Rol Adı</th>
+                                        <th>Rol Ad</th>
                                         <th>Açıklama</th>
                                         <th width="55">#</th>
                                     </tr>
@@ -42,10 +40,9 @@
                                     {
                                         <tr>
                                             <td>@r.Id</td>
-                                            <td>@r.Name </td>
+                                            <td>@r.Name</td>
                                             <td>@r.Description</td>
                                             <td class="text-center">
-
                                                 <a asp-area="Admin"
                                                    asp-controller="Role"
                                                    asp-action="AssignUsers"
@@ -60,8 +57,6 @@
                                                    class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
-
-
                                             </td>
                                         </tr>
                                     }
@@ -89,4 +84,3 @@
 @section Scripts {
     @await Html.PartialAsync("_DataTablesJsPartial")
 }
-

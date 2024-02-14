@@ -6,13 +6,12 @@ using MiniShop.Entity.Concrete.Identity;
 
 namespace MiniShop.UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles ="SuperAdmin")]
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin")]
     public class RoleController : Controller
     {
-        private readonly RoleManager<Role> _roleManager;
         private readonly UserManager<User> _userManager;
-
+        private readonly RoleManager<Role> _roleManager;
 
         public RoleController(UserManager<User> userManager, RoleManager<Role> roleManager)
         {
@@ -21,7 +20,5 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         }
 
         public async Task<IActionResult> Index() => View(await _roleManager.Roles.ToListAsync());
-
-
     }
 }

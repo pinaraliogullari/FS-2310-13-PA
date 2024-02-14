@@ -23,7 +23,7 @@ namespace MiniShop.UI.Controllers
         }
 
         [HttpPost]
-        public async Task< IActionResult> Register(RegisterViewModel registerViewModel)
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
             if(ModelState.IsValid)
             {
@@ -32,18 +32,18 @@ namespace MiniShop.UI.Controllers
                     UserName = registerViewModel.UserName,
                     Email = registerViewModel.Email,
                     FirstName = registerViewModel.FirstName,
-                    LastName = registerViewModel.LastName,
-                    
+                    LastName = registerViewModel.LastName
                 };
-                var result=await _userManager.CreateAsync(user, registerViewModel.Password);
-                if(result.Succeeded)
+
+                var result = await _userManager.CreateAsync(user,registerViewModel.Password);
+                if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index","Home");
+                    return Redirect("~/");
                 }
             }
             return View(registerViewModel);
         }
-
 
         [HttpGet]
         public IActionResult Login(string returnUrl=null)
@@ -58,19 +58,18 @@ namespace MiniShop.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return View(loginViewModel);
             }
-            User user= await _userManager.FindByNameAsync(loginViewModel.UserName);
+            User user = await _userManager.FindByNameAsync(loginViewModel.UserName);
             if (user == null)
             {
                 ModelState.AddModelError("", "Kullanıcı bulunamadı");
                 return View(loginViewModel);
             }
-            var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password,false,false);
-
-            if (!result.Succeeded)
+            var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
+            if(!result.Succeeded)
             {
                 ModelState.AddModelError("", "Şifre hatalı");
                 return View(loginViewModel);
@@ -81,17 +80,15 @@ namespace MiniShop.UI.Controllers
                 return Redirect(returnUrl);
             }
             return RedirectToAction("Index", "Home");
-
-           
         }
-
+    
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             TempData["ReturnUrl"] = null;
-            return RedirectToAction("Index", "Home");
+            return Redirect("~/");
         }
-
+        
         public async Task<IActionResult> AccessDenied()
         {
             return View();

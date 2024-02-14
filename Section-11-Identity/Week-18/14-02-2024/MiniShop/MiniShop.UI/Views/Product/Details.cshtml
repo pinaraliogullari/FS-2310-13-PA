@@ -9,16 +9,15 @@
                         <a class="pt active" href="#product-@Model.Id-1">
                             <img src="/images/products/@Model.ImageUrl" alt="">
                         </a>
-                        <a class="pt active" href="#product-@Model.Id-2">
+                        <a class="pt" href="#product-@Model.Id-2">
                             <img src="/images/products/@Model.ImageUrl" alt="">
                         </a>
-                        <a class="pt active" href="#product-@Model.Id-3">
+                        <a class="pt" href="#product-@Model.Id-3">
                             <img src="/images/products/@Model.ImageUrl" alt="">
                         </a>
-                        <a class="pt active" href="#product-@Model.Id-4">
+                        <a class="pt" href="#product-@Model.Id-4">
                             <img src="/images/products/@Model.ImageUrl" alt="">
                         </a>
-                     
                     </div>
                     <div class="product__details__slider__content">
                         <div class="product__details__pic__slider owl-carousel">
@@ -26,14 +25,13 @@
                             <img data-hash="product-@Model.Id-2" class="product__big__img" src="/images/products/@Model.ImageUrl" alt="">
                             <img data-hash="product-@Model.Id-3" class="product__big__img" src="/images/products/@Model.ImageUrl" alt="">
                             <img data-hash="product-@Model.Id-4" class="product__big__img" src="/images/products/@Model.ImageUrl" alt="">
-                         
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="product__details__text">
-                    <h3>@Model.Name <span>Buraya yazak bir şey bulamadık.</span></h3>
+                    <h3>@Model.Name <span>Brand: Buraya marka gelecek</span></h3>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -47,7 +45,7 @@
                         var discountPrice = Convert.ToDouble(price) - (Convert.ToDouble(price) * 0.1);
                     }
                     <div class="product__details__price">@discountPrice TL <span>@price TL</span></div>
-                    <p> @Model.Properties </p>
+                    <p>@Model.Properties</p>
                     <div class="product__details__button">
                         <div class="quantity">
                             <span>Adet:</span>
@@ -55,7 +53,7 @@
                                 <input type="text" value="1">
                             </div>
                         </div>
-                        <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Sepete Ekle</a>
+                        <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Sepete ekle</a>
                         <ul>
                             <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                             <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>

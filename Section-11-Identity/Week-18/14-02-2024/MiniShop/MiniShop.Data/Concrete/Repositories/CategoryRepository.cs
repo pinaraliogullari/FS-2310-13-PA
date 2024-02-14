@@ -26,7 +26,7 @@ namespace MiniShop.Data.Concrete.Repositories
         {
             List<Category> categories = await MiniShopDbContext
                 .Categories
-                .Where(c => c.IsActive && !c.IsDeleted)
+                .Where(c=>c.IsActive && !c.IsDeleted)
                 .Take(n)
                 .ToListAsync();
             return categories;

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Data.Concrete.Contexts
 {
-    public class MiniShopDbContext:IdentityDbContext<User,Role,string>
+    public class MiniShopDbContext:IdentityDbContext<User, Role, string>
     {
         public MiniShopDbContext(DbContextOptions options):base(options)
         {
@@ -25,6 +25,7 @@ namespace MiniShop.Data.Concrete.Contexts
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.SeedData();

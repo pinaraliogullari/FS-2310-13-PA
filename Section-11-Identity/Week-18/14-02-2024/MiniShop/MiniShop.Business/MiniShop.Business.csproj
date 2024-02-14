@@ -15,6 +15,4 @@
     <ProjectReference Include="..\MiniShop.Shared\MiniShop.Shared.csproj" />
   </ItemGroup>
 
-
-
 </Project>

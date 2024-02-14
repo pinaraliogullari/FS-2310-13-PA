@@ -132,13 +132,12 @@ ol {
 	content: "";
 }
 
+
 .set-bg {
 	background-repeat: no-repeat;
 	background-size: auto;
 	background-position: top center;
 }
-
-
 .spad {
 	padding-top: 100px;
 	padding-bottom: 100px;

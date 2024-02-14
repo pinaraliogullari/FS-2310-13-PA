@@ -13,7 +13,7 @@ namespace MiniShop.UI.Controllers
             _productManager = productManager;
         }
 
-        public async Task< IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var products = await _productManager.GetAllNonDeletedAsync();
             return View(products.Data);

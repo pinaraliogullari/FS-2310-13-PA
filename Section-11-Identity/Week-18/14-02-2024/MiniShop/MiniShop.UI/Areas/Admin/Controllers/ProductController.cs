@@ -29,8 +29,8 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             _imageHelper = imageHelper;
         }
 
+
         [AllowAnonymous]
-        //bu action için authorized özelliğini kaldırmış olduk. login olan herkes admin paneli görecek.
         public async Task<IActionResult> Index(bool id = false)
         {
             Response<List<ProductViewModel>> result = await _productManager.GetAllNonDeletedAsync(id);
@@ -51,7 +51,6 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -63,7 +62,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             return View(model);
         }
 
-       
+
         [HttpPost]
         public async Task<IActionResult> Create(AddProductViewModel model, IFormFile image)
         {

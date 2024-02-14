@@ -16,6 +16,5 @@ namespace MiniShop.Entity.Concrete
         public int ShoppingCartId { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
         public int Quantity { get; set; }
-
     }
 }

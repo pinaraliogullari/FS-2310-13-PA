@@ -29,7 +29,9 @@ namespace MiniShop.Data.Concrete.Repositories
             return entity;
         }
 
-        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
+        public async Task<List<TEntity>> GetAllAsync(
+            Expression<Func<TEntity, bool>> options = null,
+            Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
         {
             IQueryable<TEntity> query = _dbContext.Set<TEntity>();
             if (include != null)

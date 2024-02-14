@@ -57,5 +57,6 @@ namespace MiniShop.Shared.ViewModels
 
         [DisplayName("Kategoriler")]
         public List<CategoryViewModel> Categories { get; set; }
+
     }
 }

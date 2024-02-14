@@ -24,37 +24,36 @@ builder.Services.AddIdentity<User, Role>()
 builder.Services.Configure<IdentityOptions>(options =>
 {
     #region Parola Ayarlarý
-    options.Password.RequiredLength = 8;//parola en az 6 karakter olmalý.
-    options.Password.RequireDigit = true; //parola sayýsal deðer içermeli.
-    options.Password.RequireNonAlphanumeric = true; //parola özel karakter içermeli
-    options.Password.RequireUppercase = true; //parola büyük harf içermeli
-    options.Password.RequireLowercase = true;//parola küçük harf içermeli.
-    /*options.Password.RequiredUniqueChars *///tekrar etmemesi istenen karakterler.
+    options.Password.RequiredLength = 6; //Parola en az 6 karakter olmalý
+    options.Password.RequireDigit = true; //Parola sayýsal deðer içermeli
+    options.Password.RequireNonAlphanumeric = true;//Parola özel karakter içermeli
+    options.Password.RequireUppercase = true; //Parola büyük harf içermeli
+    options.Password.RequireLowercase = true; //Parola küçük harf içermeli
+                                              //options.Password.RequiredUniqueChars //Tekrar etmemesi istenen karakterler
     #endregion
 
     #region Hesap Kilitleme Ayarlarý
-    options.Lockout.MaxFailedAccessAttempts = 3; //üstüste hatalý giriþ denemesi sýnýrý
-    options.Lockout.DefaultLockoutTimeSpan= TimeSpan.FromSeconds(15);// kilitlenmiþ bir hesaba yeniden giriþ yapabilmek için gereken bekleme süresi.
-    //options.Lockout.AllowedForNewUsers = true; //yeniden kayýt olmaya imkan ver.
+    options.Lockout.MaxFailedAccessAttempts = 3;//Üst üste hatalý giriþ denemesi sýnýrý
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15);//Kilitlenmiþ bir hesaba yeniden giriþ yapabilmek için gereken bekleme süresi
+    //options.Lockout.AllowedForNewUsers = true; //Yeniden kayýt olmaya imkan ver
     #endregion
 
-    options.User.RequireUniqueEmail = true;//her email sade bir kez kayýt olabilir.
-    options.SignIn.RequireConfirmedEmail= false; //email onayý
-
+    options.User.RequireUniqueEmail = true;//Her email sadece bir kez kayýt olabilir
+    options.SignIn.RequireConfirmedEmail = false;
 });
-//cookie ayarlarý
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account/Login";
     options.LogoutPath = "/";
     options.AccessDeniedPath = "/Account/AccessDenied";
-    options.ExpireTimeSpan=TimeSpan.FromDays(45);
+    options.ExpireTimeSpan = TimeSpan.FromDays(45);
     options.SlidingExpiration = true;
     options.Cookie = new CookieBuilder
     {
         Name = "MiniShop.Security.Cookie",
-        HttpOnly=true,
-        SameSite=SameSiteMode.Strict
+        HttpOnly = true,
+        SameSite = SameSiteMode.Strict
     };
 });
 
@@ -62,9 +61,11 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
+builder.Services.AddScoped<IShoppingCartService, ShoppingCartManager>();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 
 builder.Services.AddScoped<IImageHelper, ImageHelper>();
 
@@ -77,6 +78,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();

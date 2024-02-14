@@ -11,9 +11,10 @@ namespace MiniShop.Business.Abstract
     public interface IShoppingCartService
     {
         Task<Response<NoContent>> InitializeShoppingCartAsync(string userId);
-        Task<Response<ShoppingCartViewModel>>GetShoppingCartByUserIdAsync(string userId);
-        Task<Response<NoContent>> AddToCartAsync(string userId,int productId, int quantity);
+        Task<Response<ShoppingCartViewModel>> GetShoppingCartByUserIdAsync(string userId);
+        Task<Response<NoContent>> AddToCartAsync(string userId, int productId, int quantity);
         Task<Response<NoContent>> DeleteFromShoppingCartAsync(int shoppingCartId, int productId);
-        Task<Response<NoContent>> ClearShoppingCartAsync(int shoppingCartId, int productId);
+        Task<Response<NoContent>> ClearShoppingCartAsync(int shoppingCartId);
+
     }
 }

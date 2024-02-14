@@ -12,16 +12,18 @@ namespace MiniShop.Data.Extensions
 {
     public static class ModelBuilderExtension
     {
-        public static void SeedData(this ModelBuilder modelBuilder)
+        public static void SeedData(this ModelBuilder modelBuilder) 
         {
             #region Rol Bilgileri
+
             List<Role> roles = new List<Role>
             {
-                new Role{Name="SuperAdmin", Description="Süper Yönetici haklarını taşıyan rol",NormalizedName="SUPERADMIN"},
-                new Role{Name="Admin", Description="Yönetici haklarını taşıyan rol",NormalizedName="ADMIN"},
-                new Role{Name="Customer", Description="Müşteri haklarını taşıyan rol",NormalizedName="CUSTOMER"},
+                new Role{Name="SuperAdmin", Description="Süper Yönetici haklarını taşıyan rol", NormalizedName="SUPERADMIN"},
+                new Role{Name="Admin", Description="Yönetici haklarını taşıyan rol", NormalizedName="ADMIN"},
+                new Role{Name="Customer", Description="Müşteri haklarını taşıyan rol", NormalizedName="CUSTOMER"}
             };
             modelBuilder.Entity<Role>().HasData(roles);
+
             #endregion
 
             #region Kullanıcı Bilgileri
@@ -40,11 +42,10 @@ namespace MiniShop.Data.Extensions
                     DateOfBirth=new DateTime(1990,5,12),
                     Address="Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                     City="İstanbul",
-                    PhoneNumber="05346758734",
+                    PhoneNumber="5558779966",
                     EmailConfirmed=true
-
                 },
-                   new User
+                new User
                 {
                     FirstName="Selin",
                     LastName="Mete",
@@ -56,11 +57,10 @@ namespace MiniShop.Data.Extensions
                     DateOfBirth=new DateTime(1993,7,16),
                     Address="Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                     City="İstanbul",
-                    PhoneNumber="05387659945",
+                    PhoneNumber="5387996655",
                     EmailConfirmed=true
-
                 },
-                    new User
+                new User
                 {
                     FirstName="Kemal",
                     LastName="Durukan",
@@ -69,14 +69,13 @@ namespace MiniShop.Data.Extensions
                     Email="kemaldurukan@gmail.com",
                     NormalizedEmail="KEMALDURUKAN@GMAIL.COM",
                     Gender="Erkek",
-                    DateOfBirth=new DateTime(1990,5,12),
+                    DateOfBirth=new DateTime(1993,7,16),
                     Address="Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                     City="İstanbul",
-                    PhoneNumber="05346758734",
+                    PhoneNumber="5387996655",
                     EmailConfirmed=true
-
                 },
-                     new User
+                new User
                 {
                     FirstName="Ayşen Umay",
                     LastName="Ergül",
@@ -85,23 +84,24 @@ namespace MiniShop.Data.Extensions
                     Email="aysenumay@gmail.com",
                     NormalizedEmail="AYSENUMAY@GMAIL.COM",
                     Gender="Kadın",
-                    DateOfBirth=new DateTime(1990,5,12),
+                    DateOfBirth=new DateTime(1993,7,16),
                     Address="Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                     City="İstanbul",
-                    PhoneNumber="05346758734",
+                    PhoneNumber="5387996655",
                     EmailConfirmed=true
-
-                },
+                }
             };
+
             modelBuilder.Entity<User>().HasData(users);
             #endregion
 
             #region Şifre İşlemleri
+
             var passwordHasher = new PasswordHasher<User>();
-            users[0].PasswordHash = passwordHasher.HashPassword(users[0],"Qwe123.");
-            users[1].PasswordHash = passwordHasher.HashPassword(users[1],"Qwe123.");
-            users[2].PasswordHash = passwordHasher.HashPassword(users[0], "Qwe123.");
-            users[3].PasswordHash = passwordHasher.HashPassword(users[1], "Qwe123.");
+            users[0].PasswordHash = passwordHasher.HashPassword(users[0], "Qwe123.");
+            users[1].PasswordHash = passwordHasher.HashPassword(users[1], "Qwe123.");
+            users[2].PasswordHash = passwordHasher.HashPassword(users[2], "Qwe123.");
+            users[3].PasswordHash = passwordHasher.HashPassword(users[3], "Qwe123.");
 
             #endregion
 
@@ -110,27 +110,25 @@ namespace MiniShop.Data.Extensions
             {
                 new IdentityUserRole<string>
                 {
-                    UserId=users[0].Id,
-                    RoleId=roles[0].Id
-                  //ihtiyaca göre bu kod yazılabilir;  RoleId=roles.Where(x=>x.Name=="Admin").FirstOrDefault().Id,
-                    
+                     UserId=users[0].Id,
+                     RoleId=roles[0].Id
+                     //RoleId=roles.Where(x=>x.Name=="Admin").FirstOrDefault().Id,
                 },
-                 new IdentityUserRole<string>
+                new IdentityUserRole<string>
                 {
                     UserId=users[1].Id,
                     RoleId=roles[1].Id
-                    
-                },
-                   new IdentityUserRole<string>
+                }
+                ,
+                new IdentityUserRole<string>
                 {
                     UserId=users[2].Id,
                     RoleId=roles[1].Id
-
-                },  new IdentityUserRole<string>
+                },
+                new IdentityUserRole<string>
                 {
                     UserId=users[3].Id,
                     RoleId=roles[2].Id
-
                 }
             };
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(userRoles);
@@ -140,15 +138,14 @@ namespace MiniShop.Data.Extensions
 
             List<ShoppingCart> shoppingCarts = new List<ShoppingCart>
             {
-                new ShoppingCart{Id=1,UserId= users[0].Id},
-                new ShoppingCart{Id=2,UserId= users[1].Id},
-                new ShoppingCart{Id=3,UserId= users[2].Id},
-                new ShoppingCart{Id=4,UserId= users[3].Id}
+                new ShoppingCart{ Id=1, UserId=users[0].Id } ,
+                new ShoppingCart{ Id=2, UserId=users[1].Id } ,
+                new ShoppingCart{ Id=3, UserId=users[2].Id } ,
+                new ShoppingCart{ Id=4, UserId=users[3].Id }
             };
             modelBuilder.Entity<ShoppingCart>().HasData(shoppingCarts);
 
             #endregion
-
         }
     }
 }

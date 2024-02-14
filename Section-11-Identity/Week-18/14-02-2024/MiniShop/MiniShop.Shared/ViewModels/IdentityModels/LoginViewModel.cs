@@ -12,7 +12,7 @@ namespace MiniShop.Shared.ViewModels.IdentityModels
     {
         [Required(ErrorMessage ="Boş bırakılamaz")]
         [DisplayName("Kullanıcı Adı")]
-        public  string UserName { get; set; }
+        public string UserName { get; set; }
 
 
         [Required(ErrorMessage = "Boş bırakılamaz")]

@@ -10,7 +10,7 @@ namespace MiniShop.Entity.Concrete
     public class Order
     {
         public int Id { get; set; }
-        public DateTime OrderDate { get; set; }=DateTime.Now;
+        public DateTime OrderDate { get; set; } = DateTime.Now;
         public string UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -22,6 +22,5 @@ namespace MiniShop.Entity.Concrete
         public PaymentType PaymentType { get; set; }
         public OrderState OrderState { get; set; }
         public List<OrderItem> OrderItems { get; set; }
-
     }
 }
