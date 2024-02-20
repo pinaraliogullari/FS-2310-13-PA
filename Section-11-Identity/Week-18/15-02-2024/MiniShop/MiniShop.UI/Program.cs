@@ -97,4 +97,13 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+//blog/abc-> blog controller article action çalýþsýn
+//blog/def-> blog controller article action çalýþsýn
+//app.MapControllerRoute(
+//    name: "pages",
+//    pattern: "blog/{*article}",
+//    defaults: new { controller = "Blog", action = "Article" });
+
+
+
 app.Run();
