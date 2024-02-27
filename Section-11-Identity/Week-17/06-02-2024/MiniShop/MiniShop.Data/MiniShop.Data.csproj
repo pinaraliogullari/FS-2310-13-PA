@@ -19,7 +19,6 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\MiniShop.Entity\MiniShop.Entity.csproj" />
     <ProjectReference Include="..\MiniShop.Shared\MiniShop.Shared.csproj" />
   </ItemGroup>
 

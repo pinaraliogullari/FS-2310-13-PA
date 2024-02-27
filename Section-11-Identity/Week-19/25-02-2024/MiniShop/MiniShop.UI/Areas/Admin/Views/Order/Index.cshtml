@@ -59,20 +59,23 @@
 @section Styles {
     @await Html.PartialAsync("_DataTablesCssPartial")
     <script>
-        const filterByProduct = (element) => {
-            const tBody = $("tbody");
-            $.ajax({
-                url:`/Admin/Order/FilterByProduct/${element.value}`,
-                type: 'GET',
-                success: (response)=>{
-                    tBody.html(response);
-                },
-                error: (err) => {
-                    console.log(err);
-                }
+       
+            const filterByProduct = (element) => {
+                const tBody = $("tbody");
+                $.ajax({
+                    url: `/Admin/Order/FilterByProduct/${element.value}`,
+                    type: 'GET',
+                    success: (response) => {
+                        tBody.html(response);
+                    },
+                    error: (err) => {
+                        console.log(err);
+                    }
 
-            });
-        }
+                });
+            }
+      
+      
     </script>
 }
 
