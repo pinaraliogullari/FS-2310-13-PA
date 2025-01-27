@@ -146,7 +146,7 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             //    CategoryIds = productViewModel.Categories.Select(c => c.Id).ToList(),//category idyi seçtik.
             
             //};
-			Categories = await GetCategoriesAsync(),
+			Categories = await GetCategoriesAsync();
             return View(model);
 
         }
